@@ -17,10 +17,22 @@ app.use(
     origin: CLIENT_ORIGIN
   })
 )
+
+const listings = require('../listings')
+const myList = require('../myList')
+
 app.use(helmet())
 
 app.get('/', (req, res) => {
   res.send('Hello, boilerplate!')
+})
+
+app.get('/list', (req, res) => {
+  res.send(listings)
+})
+
+app.get('/mylist', (req, res) => {
+  res.send(myList)
 })
 
 app.use(function errorHandler(error, req, res, next) {
