@@ -18,18 +18,16 @@ app.use(
   })
 )
 
-const listings = require('../listings')
+// const listings = require('../listings')
 const myList = require('../myList')
 
 app.use(helmet())
 
-app.get('/', (req, res) => {
-  res.send('Hello, boilerplate!')
-})
+// app.get('/list', (req, res) => {
+//   res.send(listings)
+// })
 
-app.get('/list', (req, res) => {
-  res.send(listings)
-})
+app.use('/api/list', listRouter)
 
 app.get('/mylist', (req, res) => {
   res.send(myList)
