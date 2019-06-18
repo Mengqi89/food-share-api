@@ -8,3 +8,5 @@ listRouter
     .get((req, res, next) =>
         res.send(listings).catch(next)
     )
+
+module.exports = listRouter
