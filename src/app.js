@@ -5,6 +5,7 @@ const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV, CLIENT_ORIGIN } = require('./config')
 const listRouter = require('./list/list-router')
+const myListRouter = require('./myList/myList')
 
 const app = express()
 
@@ -29,10 +30,7 @@ app.use(helmet())
 // })
 
 app.use('/api/list', listRouter)
-
-app.get('/mylist', (req, res) => {
-  res.send(myList)
-})
+app.use('/api/mylist', myListRouter)
 
 app.use(function errorHandler(error, req, res, next) {
   let response
