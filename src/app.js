@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV, CLIENT_ORIGIN } = require('./config')
+const listRouter = require('./list/list-router')
 
 const app = express()
 
@@ -18,18 +19,16 @@ app.use(
   })
 )
 
-const listings = require('../listings')
+// const listings = require('../listings')
 const myList = require('../myList')
 
 app.use(helmet())
 
-app.get('/', (req, res) => {
-  res.send('Hello, boilerplate!')
-})
+// app.get('/list', (req, res) => {
+//   res.send(listings)
+// })
 
-app.get('/list', (req, res) => {
-  res.send(listings)
-})
+app.use('/api/list', listRouter)
 
 app.get('/mylist', (req, res) => {
   res.send(myList)
