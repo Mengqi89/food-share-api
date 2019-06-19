@@ -6,7 +6,8 @@ module.exports = [
         address: '123 Lucky Lane, 84103',
         contact: 'dunder@dunder.net',
         type: 'fruit',
-        zip: '84103'
+        zip: '84103',
+        userId: 'dunder'
     },
     {
         id: 1,
@@ -15,7 +16,8 @@ module.exports = [
         address: '123 Sad Lane, 84102',
         contact: 'dunder@dunder.net',
         type: 'fruit',
-        zip: '84102'
+        zip: '84102',
+        userId: 'dunder'
     },
     {
         id: 2,
@@ -24,7 +26,9 @@ module.exports = [
         address: '311 Snake Lane, 84105',
         contact: 'dunder@dunder.net',
         type: 'fruit',
-        zip: '84105'
+        zip: '84105',
+        userId: 'mifflin'
+
     },
     {
         id: 3,
@@ -33,7 +37,8 @@ module.exports = [
         address: '333 Trump Lane, 84103',
         contact: 'dunder@dunder.net',
         type: 'vegetable',
-        zip: '84103'
+        zip: '84103',
+        userId: 'mifflin'
     },
     {
         id: 5,
@@ -42,7 +47,8 @@ module.exports = [
         address: '123 Sad Lane, 84102',
         contact: 'dunder@dunder.net',
         type: 'fruit',
-        zip: '84102'
+        zip: '84102',
+        userId: 'mike'
     },
     {
         id: 9,
@@ -50,6 +56,7 @@ module.exports = [
         summary: 'a giant watermelon',
         address: '311 Snake Lane, 84105',
         type: 'fruit',
-        zip: '84105'
+        zip: '84105',
+        userId: 'mike'
     }
 ]
