@@ -36,6 +36,7 @@ app.use('/api/auth', authRouter)
 // /api/list/users/:username  -- all listings of a specific user [GET] *
 // /api/list/users/:username/:listingId  -- a listing of a specific user [DELETE/PATCH]
 // /api/auth/login -- POST to check credentials
+// /api/users POST to register
 
 app.use(function errorHandler(error, req, res, next) {
   let response

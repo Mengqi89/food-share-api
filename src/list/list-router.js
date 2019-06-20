@@ -74,14 +74,17 @@ listRouter
                     }
                 })
         }
-        list.splice([listingId - 1], 1, listingToUpdate)
+
+        const index = list.findIndex(listing => listing.id === listingId)
+        list.splice(index, 1, listingToUpdate)
         res
             .status(200)
-            .json(list[listingId - 1])
+            .json(list[index])
     })
     .delete((req, res, next) => {
         const listingId = parseInt(req.params.listingId)
-        list.splice([listingId - 1], 1)
+        const index = list.findIndex(listing => listing.id === listingId)
+        list.splice(index, 1)
         res
             .status(200)
             .json(list)

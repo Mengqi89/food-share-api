@@ -116,8 +116,9 @@ describe('PATCH /api/list/users/:username/:listingId', () => {
             zip: '84103',
             username: 'dunder'
         }
+        const index = testLisitngs.findIndex(listing => listing.id === idToUpdate)
         const expectedListing = {
-            ...testLisitngs[idToUpdate - 1],
+            ...testLisitngs[index],
             ...updateListing
         }
         return supertest(app)
@@ -134,7 +135,8 @@ describe('DELETE /api/list/users/:username/:listingId', () => {
         const idToDelete = 1
         const userToDelete = 'dunder'
 
-        testLisitngs.splice([idToDelete - 1], 1)
+        const index = testLisitngs.findIndex(listing => listing.id === idToDelete)
+        testLisitngs.splice(index, 1)
         const expectedListing = testLisitngs
 
         return supertest(app)
