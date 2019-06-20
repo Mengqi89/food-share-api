@@ -10,7 +10,7 @@ describe('GET /api/users', () => {
                 expect(res.body).to.be.an('array')
                 expect(res.body).to.have.lengthOf.at.least(1)
                 const user = res.body[0]
-                expect(user).to.include.all.keys('id', 'userId', 'password')
+                expect(user).to.include.all.keys('id', 'username', 'password')
             })
     })
 })

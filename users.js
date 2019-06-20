@@ -1,17 +1,17 @@
 module.exports = [
     {
-        id: 0,
-        userId: 'dunder',
+        id: 1,
+        username: 'dunder',
         password: '12345'
     },
     {
-        id: 1,
-        userId: 'mifflin',
+        id: 2,
+        username: 'mifflin',
         password: '23456'
     },
     {
-        id: 2,
-        userId: 'mike',
+        id: 3,
+        username: 'mike',
         password: '34567'
     }
 ]

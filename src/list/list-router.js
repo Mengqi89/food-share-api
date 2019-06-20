@@ -8,7 +8,7 @@ listRouter
     .get((req, res, next) =>
         res
             .status(200)
-            .send(list)
+            .json(list)
     )
 
 listRouter
@@ -16,35 +16,50 @@ listRouter
     .get((req, res, next) => {
         const listingId = parseInt(req.params.listingId)
         const listing = list.filter(listing => listing.id === listingId)
+        if (listing.length === 0) {//when I used listing.length === [], it didn't work
+            return res
+                .status(404)
+                .json({ error: { message: `Listing doesn't exist` } })
+        }
         res
             .status(200)
-            .send(listing)
+            .json(listing[0])
     })
 
 listRouter
-    .route('/users/:userId')
+    .route('/users/:username')
     .get((req, res, next) => {
-        const userId = req.params.userId
-        console.log(req.params)
-        console.log(req.params.userId)
-        const listing = list.filter(listing => listing.userId === userId)
+        const username = req.params.username
+        console.log(username)
+        const listing = list.filter(listing => listing.username === username)
+        console.log(listing.length)
+
+        if (listing.length === 0) {
+            return res
+                .status(404)
+                .json({ error: { message: `Listing doesn't exist` } })
+        }
         res
             .status(200)
-            .send(listing)
+            .json(listing)
     })
 
 listRouter
-    .route('/users/:userId/:listingId')
+    .route('/users/:username/:listingId')
     .get((req, res, next) => {
         const listingId = parseInt(req.params.listingId)
-        const userId = req.params.userId
-        console.log(listingId, userId)
+        const username = req.params.username
         const listing = list.filter(listing =>
-            listing.userId === userId && listing.id === listingId
+            listing.username === username && listing.id === listingId
         )
+        if (listing.length === 0) {
+            return res
+                .status(404)
+                .json({ error: { message: `Listing doesn't exist` } })
+        }
         res
             .status(200)
-            .send(listing)
+            .json(listing[0])
     })
 
 module.exports = listRouter

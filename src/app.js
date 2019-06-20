@@ -31,8 +31,8 @@ app.use('/api/list', listRouter)
 
 // /api/list/ -- all listings
 // /api/list/:listingId -- a specific listing [GET]
-// /api/list/users/:userId  -- all listings of a specific user [GET]
-// /api/list/users/:userId/:listingId  -- a listing of a specific user [DELETE/PATCH]
+// /api/list/users/:username  -- all listings of a specific user [GET]
+// /api/list/users/:username/:listingId  -- a listing of a specific user [DELETE/PATCH]
 
 app.use(function errorHandler(error, req, res, next) {
   let response
