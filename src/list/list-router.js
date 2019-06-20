@@ -1,7 +1,8 @@
 const express = require('express')
-
 const listRouter = express.Router()
 const list = require('../../list')
+const jsonParser = express.json()
+
 
 listRouter
     .route('/')
