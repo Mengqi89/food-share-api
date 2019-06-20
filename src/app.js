@@ -5,6 +5,8 @@ const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV, CLIENT_ORIGIN } = require('./config')
 const listRouter = require('./list/list-router')
+const usersRouter = require('./users/users-router')
+const authRouter = require('./auth/auth-router')
 
 const app = express()
 
@@ -19,20 +21,21 @@ app.use(
   })
 )
 
-// const listings = require('../listings')
-const myList = require('../myList')
-
 app.use(helmet())
 
-// app.get('/list', (req, res) => {
-//   res.send(listings)
-// })
-
-app.use('/api/list', listRouter)
-
-app.get('/mylist', (req, res) => {
-  res.send(myList)
+app.get('/', (req, res) => {
+  res.send('Hello, boilerplate!')
 })
+
+app.use('/api/users', usersRouter)
+app.use('/api/list', listRouter)
+app.use('/api/auth', authRouter)
+
+// /api/list/ --  GET all listings *
+// /api/list/:listingId -- a specific listing [GET] *
+// /api/list/users/:username  -- all listings of a specific user [GET] *
+// /api/list/users/:username/:listingId  -- a listing of a specific user [DELETE/PATCH]
+// /api/auth/login -- POST to check credentials
 
 app.use(function errorHandler(error, req, res, next) {
   let response
