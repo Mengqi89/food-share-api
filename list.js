@@ -41,7 +41,7 @@ module.exports = [
         username: 'mifflin'
     },
     {
-        id: 6,
+        id: 5,
         title: 'peaches',
         summary: 'good peaches',
         address: '123 Sad Lane, 84102',
@@ -51,7 +51,7 @@ module.exports = [
         username: 'mike'
     },
     {
-        id: 10,
+        id: 6,
         title: 'watermelon',
         summary: 'a giant watermelon',
         address: '311 Snake Lane, 84105',

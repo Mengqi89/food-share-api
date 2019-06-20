@@ -99,3 +99,46 @@ describe('GET /api/list/users/:username/:listingId', () => {
         })
     })
 })
+
+describe('PATCH /api/list/users/:username/:listingId', () => {
+    const testLisitngs = makeListingsArray()
+
+    it('responds with 200 and the updated listing', () => {
+        const idToUpdate = 1
+        const userToUpdate = 'dunder'
+        const updateListing = {
+            id: 1,
+            title: 'updated 5 organic tomatoes',
+            summary: 'updated delicious tomatoes',
+            address: '123 Lucky Lane, 84103',
+            contact: 'dunder@dunder.net',
+            type: 'fruit',
+            zip: '84103',
+            username: 'dunder'
+        }
+        const expectedListing = {
+            ...testLisitngs[idToUpdate - 1],
+            ...updateListing
+        }
+        return supertest(app)
+            .patch(`/api/list/users/${userToUpdate}/${idToUpdate}`)
+            .send(updateListing)
+            .expect(200, expectedListing)
+    })
+
+})
+
+describe('DELETE /api/list/users/:username/:listingId', () => {
+    const testLisitngs = makeListingsArray()
+    it('responds with 200 and the updated list', (() => {
+        const idToDelete = 1
+        const userToDelete = 'dunder'
+
+        testLisitngs.splice([idToDelete - 1], 1)
+        const expectedListing = testLisitngs
+
+        return supertest(app)
+            .delete(`/api/list/users/${userToDelete}/${idToDelete}`)
+            .expect(200, expectedListing)
+    }))
+})
