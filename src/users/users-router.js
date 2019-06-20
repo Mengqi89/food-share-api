@@ -27,12 +27,12 @@ usersRouter
         const matchedEmail = users.filter(user => user.email === email)
 
         if (matchedUser.length !== 0) {
-            res
+            return res
                 .status(409)
                 .json({ error: { message: 'username already taken' } })
         }
         if (matchedEmail.length !== 0) {
-            res
+            return res
                 .status(409)
                 .json({ error: { message: 'email already taken' } })
         }

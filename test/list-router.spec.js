@@ -3,14 +3,6 @@ const app = require('../src/app')
 const { makeListingsArray } = require('./listings.fixture')
 
 describe('GET /api/list', () => {
-    // context('given no listing', () => {
-    //     it('should responds with 200 and an empty array', () => {
-    //         return supertest(app)
-    //             .get('/api/list')
-    //             .expect(200, [])
-    //     })
-    // })
-
     context('given there are listings', () => {
         it('should responds with 200 and an array of listings', () => {
             return supertest(app)
@@ -26,7 +18,6 @@ describe('GET /api/list', () => {
         })
     })
 })
-
 describe('GET /api/list/:listingId', () => {
     context('given no listings', () => {
         it('responds with 404', () => {
@@ -49,7 +40,6 @@ describe('GET /api/list/:listingId', () => {
         })
     })
 })
-
 describe('GET /api/list/users/:username', () => {
     context('given no listings for a particular username', () => {
         it('responds with 404', () => {
@@ -74,7 +64,6 @@ describe('GET /api/list/users/:username', () => {
         })
     })
 })
-
 describe('GET /api/list/users/:username/:listingId', () => {
     context('given no listing', () => {
         it('responds with 404', () => {
@@ -99,7 +88,6 @@ describe('GET /api/list/users/:username/:listingId', () => {
         })
     })
 })
-
 describe('PATCH /api/list/users/:username/:listingId', () => {
     const testLisitngs = makeListingsArray()
 
@@ -116,8 +104,9 @@ describe('PATCH /api/list/users/:username/:listingId', () => {
             zip: '84103',
             username: 'dunder'
         }
+        const index = testLisitngs.findIndex(listing => listing.id === idToUpdate)
         const expectedListing = {
-            ...testLisitngs[idToUpdate - 1],
+            ...testLisitngs[index],
             ...updateListing
         }
         return supertest(app)
@@ -127,14 +116,14 @@ describe('PATCH /api/list/users/:username/:listingId', () => {
     })
 
 })
-
 describe('DELETE /api/list/users/:username/:listingId', () => {
     const testLisitngs = makeListingsArray()
     it('responds with 200 and the updated list', (() => {
         const idToDelete = 1
         const userToDelete = 'dunder'
 
-        testLisitngs.splice([idToDelete - 1], 1)
+        const index = testLisitngs.findIndex(listing => listing.id === idToDelete)
+        testLisitngs.splice(index, 1)
         const expectedListing = testLisitngs
 
         return supertest(app)

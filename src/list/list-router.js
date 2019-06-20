@@ -3,7 +3,6 @@ const listRouter = express.Router()
 const list = require('../../list')
 const jsonParser = express.json()
 
-
 listRouter
     .route('/')
     .get((req, res, next) =>
@@ -11,7 +10,6 @@ listRouter
             .status(200)
             .json(list)
     )
-
 listRouter
     .route('/:listingId')
     .get((req, res, next) => {
@@ -26,7 +24,6 @@ listRouter
             .status(200)
             .json(listing[0])
     })
-
 listRouter
     .route('/users/:username')
     .get((req, res, next) => {
@@ -41,7 +38,6 @@ listRouter
             .status(200)
             .json(listing)
     })
-
 listRouter
     .route('/users/:username/:listingId')
     .get((req, res, next) => {
@@ -74,18 +70,19 @@ listRouter
                     }
                 })
         }
-        list.splice([listingId - 1], 1, listingToUpdate)
+        const index = list.findIndex(listing => listing.id === listingId)
+        list.splice(index, 1, listingToUpdate)
         res
             .status(200)
-            .json(list[listingId - 1])
+            .json(list[index])
     })
     .delete((req, res, next) => {
         const listingId = parseInt(req.params.listingId)
-        list.splice([listingId - 1], 1)
+        const index = list.findIndex(listing => listing.id === listingId)
+        list.splice(index, 1)
         res
             .status(200)
             .json(list)
     })
-
 
 module.exports = listRouter
