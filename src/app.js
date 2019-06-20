@@ -31,13 +31,6 @@ app.use('/api/users', usersRouter)
 app.use('/api/list', listRouter)
 app.use('/api/auth', authRouter)
 
-// /api/list/ --  GET all listings *
-// /api/list/:listingId -- a specific listing [GET] *
-// /api/list/users/:username  -- all listings of a specific user [GET] *
-// /api/list/users/:username/:listingId  -- a listing of a specific user [DELETE/PATCH]
-// /api/auth/login -- POST to check credentials
-// /api/users POST to register
-
 app.use(function errorHandler(error, req, res, next) {
   let response
   if (NODE_ENV === 'production') {

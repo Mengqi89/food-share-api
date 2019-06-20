@@ -3,14 +3,6 @@ const app = require('../src/app')
 const { makeListingsArray } = require('./listings.fixture')
 
 describe('GET /api/list', () => {
-    // context('given no listing', () => {
-    //     it('should responds with 200 and an empty array', () => {
-    //         return supertest(app)
-    //             .get('/api/list')
-    //             .expect(200, [])
-    //     })
-    // })
-
     context('given there are listings', () => {
         it('should responds with 200 and an array of listings', () => {
             return supertest(app)
