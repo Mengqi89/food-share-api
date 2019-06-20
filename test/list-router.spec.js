@@ -26,7 +26,6 @@ describe('GET /api/list', () => {
         })
     })
 })
-
 describe('GET /api/list/:listingId', () => {
     context('given no listings', () => {
         it('responds with 404', () => {
@@ -49,7 +48,6 @@ describe('GET /api/list/:listingId', () => {
         })
     })
 })
-
 describe('GET /api/list/users/:username', () => {
     context('given no listings for a particular username', () => {
         it('responds with 404', () => {
@@ -74,7 +72,6 @@ describe('GET /api/list/users/:username', () => {
         })
     })
 })
-
 describe('GET /api/list/users/:username/:listingId', () => {
     context('given no listing', () => {
         it('responds with 404', () => {
@@ -99,7 +96,6 @@ describe('GET /api/list/users/:username/:listingId', () => {
         })
     })
 })
-
 describe('PATCH /api/list/users/:username/:listingId', () => {
     const testLisitngs = makeListingsArray()
 
@@ -128,7 +124,6 @@ describe('PATCH /api/list/users/:username/:listingId', () => {
     })
 
 })
-
 describe('DELETE /api/list/users/:username/:listingId', () => {
     const testLisitngs = makeListingsArray()
     it('responds with 200 and the updated list', (() => {
