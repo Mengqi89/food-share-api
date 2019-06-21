@@ -1,10 +1,10 @@
 const express = require('express')
 const authRouter = express.Router()
 const jsonBodyParser = express.json()
-const users = require('../../users')
+const AuthService = require('./auth-service')
 
 authRouter
-    .post('/login', jsonBodyParser, (req, res) => {
+    .post('/login', jsonBodyParser, (req, res, next) => {
         const { username, password } = req.body
         const loginUser = { username, password }
 
@@ -15,20 +15,35 @@ authRouter
                     .json({
                         error: { message: `Missing '${key}' in request body` }
                     })
-        //check if credentials are correct
-        const targetCredential = users.filter(user => user.username === username && user.password === password)
+        AuthService.getUserWithUserName(req.app.get('db'), loginUser.username)
+            .then(dbUser => {
+                if (!dbUser)
+                    return res
+                        .status(400)
+                        .json({
+                            error: { message: 'Incorrect username or password' }
+                        })
 
-        if (targetCredential.length === 0) {
-            return res
-                .status(400)
-                .json({
-                    error: { message: 'Incorrect username or password' }
-                })
-        }
-
-        res
-            .status(202)
-            .json({ message: 'login successful' })
+                return AuthService
+                    .comparePasswords(
+                        loginUser.password,
+                        dbUser.password
+                    )
+                    .then(compareMatch => {
+                        if (!compareMatch)
+                            return res
+                                .status(400)
+                                .json({
+                                    error: { message: 'Incorrect username or password' }
+                                })
+                        const sub = dbUser.username
+                        const payload = { id: dbUser.id }
+                        res.json({
+                            authToken: AuthService.createJwt(sub, payload)
+                        })
+                    })
+            })
+            .catch(next)
     })
 
 
