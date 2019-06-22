@@ -7,5 +7,6 @@ CREATE TABLE list (
     type TEXT NOT NULL,
     zip TEXT NOT NULL,
     username INTEGER REFERENCES users(id),
-    date_created TIMESTAMP DEFAULT now() NOT NULL
+    date_created TIMESTAMP DEFAULT now() NOT NULL,
+    date_modified TIMESTAMP DEFAULT now()
 );

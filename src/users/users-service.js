@@ -15,6 +15,13 @@ const UsersService = {
                 'users.email'
             )
     },
+    getUserIdByUserName(db, username) {
+        return db
+            .from('users')
+            .where('users.username', username)
+            .first()
+
+    },
     hasUserWithUserName(db, username) {
         return db('users')
             .where({ username })

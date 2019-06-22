@@ -1,3 +1,20 @@
+BEGIN;
+
+TRUNCATE
+list,
+users
+RESTART IDENTITY CASCADE;
+
+INSERT INTO users (username, first_name, last_name, password, email)
+VALUES
+('dunder1', 'Dundera', 'Mifflina', 'password', 'dunder1@dunder.net'),
+('dunder2', 'Dunderb', 'Mifflinb', 'password', 'dunder2@dunder.net'),
+('dunder3', 'Dunderc', 'Mifflinc', 'password', 'dunder3@dunder.net'),
+('dunder4', 'Dunderd', 'Mifflind', 'password', 'dunder4@dunder.net'),
+('dunder5', 'Dundere', 'Miffline', 'password', 'dunder5@dunder.net'),
+('dunder6', 'Dunderf', 'Mifflinf', 'password', 'dunder6@dunder.net'),
+('dunder7', 'Dunderg', 'Miffling', 'password', 'dunder7@dunder.net');
+
 INSERT INTO list (title, summary, address, contact, type, zip, username)
 VALUES
 ('title 1', 'summary 1', 'Address 1', 'email1@email.com', 'vegetable', '84103', 1),
@@ -7,3 +24,5 @@ VALUES
 ('title 5', 'summary 5', 'Address 5', 'email5@email.com', 'fruit', '84102', 5),
 ('title 6', 'summary 6', 'Address 6', 'email6@email.com', 'fruit', '84102', 6),
 ('title 7', 'summary 7', 'Address 7', 'email7@email.com', 'fruit', '84102', 7);
+
+COMMIT;
