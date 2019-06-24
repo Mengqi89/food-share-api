@@ -68,7 +68,7 @@ listRouter
                     return res
                         .status(404)
                         .json({
-                            error: `Listing doesn't exist`
+                            error: { message: `Listing doesn't exist` }
                         })
                 }
                 res.json(ListService.serializeListing(listing[0]))
@@ -122,7 +122,7 @@ async function checkListingExists(req, res, next) {
             return res
                 .status(404)
                 .json({
-                    error: `Listing doesn't exist`
+                    error: { message: `Listing doesn't exist` }
                 })
 
         res.listing = listing
@@ -143,7 +143,7 @@ async function checkUserNameExists(req, res, next) {
             return res
                 .status(404)
                 .json({
-                    error: `User doesn't exist`
+                    error: { message: `Listing doesn't exist` }
                 })
 
         res.userId = user.id

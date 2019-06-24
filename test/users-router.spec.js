@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs')
 const app = require('../src/app')
 const { makeUsersArray } = require('./test-helpers')
 
-describe.only('Users Endpoints', function () {
+describe('Users Endpoints', function () {
     let db
 
     before('make knex instance', () => {
@@ -15,9 +15,9 @@ describe.only('Users Endpoints', function () {
     })
     after('disconnect from db', () => db.destroy())
 
-    before('clean the table', () => db('users').delete())
+    before('clean the table', () => db.raw('TRUNCATE users, list RESTART IDENTITY CASCADE'))
 
-    afterEach('cleanup', () => db('users').delete())
+    afterEach('cleanup', () => db.raw('TRUNCATE users, list RESTART IDENTITY CASCADE'))
 
     describe('GET /api/users', () => {
         context('Given there are no users', () => {
@@ -34,7 +34,7 @@ describe.only('Users Endpoints', function () {
                     .into('users')
                     .insert(testUsers)
             })
-            it('GET /api/users responds with 200 and all the users', () => {
+            it('responds with 200 and all the users', () => {
                 return supertest(app)
                     .get('/api/users')
                     .expect(200, testUsers)

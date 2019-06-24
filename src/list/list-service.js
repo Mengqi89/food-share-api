@@ -45,9 +45,9 @@ const ListService = {
             contact: xss(listing.contact),
             type: xss(listing.type),
             zip: xss(listing.zip),
-            username: xss(listing.username),
-            date_created: new Date(listing.date_created),
-            date_modified: new Date(listing.date_modified)
+            username: parseInt(xss(listing.username))
+            // date_created: new Date(listing.date_created),
+            // date_modified: new Date(listing.date_modified)
         }
     }
 }
