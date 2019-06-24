@@ -1,6 +1,5 @@
 const express = require('express')
 const path = require('path')
-const list = require('../../list')
 const jsonParser = express.json()
 const ListService = require('./list-service')
 const UsersService = require('../users/users-service')
