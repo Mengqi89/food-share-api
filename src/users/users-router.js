@@ -10,7 +10,7 @@ usersRouter
     .get((req, res, next) => {
         UsersService.getAllUsers(req.app.get('db'))
             .then(users => {
-                res.json(users)
+                res.json(users.map(UsersService.serializeUser))
             })
             .catch(next)
     })

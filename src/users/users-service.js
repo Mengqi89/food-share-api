@@ -11,7 +11,8 @@ const UsersService = {
                 'users.username',
                 'users.first_name',
                 'users.last_name',
-                'users.email'
+                'users.email',
+                'users.password'
             )
     },
     getUserIdByUserName(db, username) {
@@ -65,7 +66,7 @@ const UsersService = {
             last_name: xss(user.last_name),
             username: xss(user.username),
             email: xss(user.email),
-            date_created: new Date(user.date_created)
+            password: xss(user.password)
         }
     }
 }
