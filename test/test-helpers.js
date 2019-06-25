@@ -41,7 +41,7 @@ function makeUsersArray() {
             'first_name': 'test1',
             'last_name': 'test1',
             'email': 'test1@test.net',
-            'password': 'password'
+            'password': '!wW101010'
         },
         {
             'id': 2,
@@ -49,7 +49,7 @@ function makeUsersArray() {
             'first_name': 'test2',
             'last_name': 'test2',
             'email': 'test2@test.net',
-            'password': 'password'
+            'password': '!wW101010'
         },
         {
             'id': 3,
@@ -57,13 +57,30 @@ function makeUsersArray() {
             'first_name': 'test3',
             'last_name': 'test3',
             'email': 'test3@test.net',
-            'password': 'password'
+            'password': '!wW101010'
         }
     ]
+}
+
+function seedUsers(db, users) {
+    const preppedUsers = users.map(user => ({
+        ...user,
+        password: bcrypt.hashSync(user.password, 1)
+    }))
+    return db
+        .into('users')
+        .insert(preppedUsers)
+    // .then(() =>
+    //     // update the auto sequence to stay in sync
+    //     db.raw(`SELECT setval('users_id_seq', ?)`, [
+    //         users[users.length - 1].id
+    //     ])
+    // )
 }
 
 
 module.exports = {
     makeListingsArray,
-    makeUsersArray
+    makeUsersArray,
+    seedUsers
 }

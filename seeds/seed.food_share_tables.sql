@@ -7,13 +7,13 @@ RESTART IDENTITY CASCADE;
 
 INSERT INTO users (username, first_name, last_name, password, email)
 VALUES
-('dunder1', 'Dundera', 'Mifflina', 'password', 'dunder1@dunder.net'),
-('dunder2', 'Dunderb', 'Mifflinb', 'password', 'dunder2@dunder.net'),
-('dunder3', 'Dunderc', 'Mifflinc', 'password', 'dunder3@dunder.net'),
-('dunder4', 'Dunderd', 'Mifflind', 'password', 'dunder4@dunder.net'),
-('dunder5', 'Dundere', 'Miffline', 'password', 'dunder5@dunder.net'),
-('dunder6', 'Dunderf', 'Mifflinf', 'password', 'dunder6@dunder.net'),
-('dunder7', 'Dunderg', 'Miffling', 'password', 'dunder7@dunder.net');
+('dunder1', 'Dundera', 'Mifflina', '!wW101010', 'dunder1@dunder.net'),
+('dunder2', 'Dunderb', 'Mifflinb', '!wW101010', 'dunder2@dunder.net'),
+('dunder3', 'Dunderc', 'Mifflinc', '!wW101010', 'dunder3@dunder.net'),
+('dunder4', 'Dunderd', 'Mifflind', '!wW101010', 'dunder4@dunder.net'),
+('dunder5', 'Dundere', 'Miffline', '!wW101010', 'dunder5@dunder.net'),
+('dunder6', 'Dunderf', 'Mifflinf', '!wW101010', 'dunder6@dunder.net'),
+('dunder7', 'Dunderg', 'Miffling', '!wW101010', 'dunder7@dunder.net');
 
 INSERT INTO list (title, summary, address, contact, type, zip, username)
 VALUES
