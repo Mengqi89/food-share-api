@@ -78,7 +78,7 @@ listRouter
     })
     .patch(jsonParser, (req, res, next) => {
         console.log(req.body)
-        const { title, summary, address, contact, type, zip } = req.body.listing
+        const { title, summary, address, contact, type, zip } = req.body
         const listingId = parseInt(req.params.listingId)
         const newListing = { title, summary, address, contact, type, zip }
 

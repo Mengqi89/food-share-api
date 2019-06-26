@@ -21,6 +21,19 @@ describe('List Endpoints', function () {
 
     describe('GET /api/list', () => {
         context('Given there are no listings', () => {
+            const testUsers = makeUsersArray()
+
+            beforeEach('insert listings', () => {
+                return db
+                    .into('users')
+                    .insert(testUsers)
+                    .then(() => {
+                        return db
+                            .into('list')
+                            .insert([])
+                    })
+            })
+
             it('returns 200 and an empty list', () => {
                 return supertest(app)
                     .get('/api/list')
@@ -177,20 +190,19 @@ describe('List Endpoints', function () {
             const idToUpdate = 1
             const userToUpdate = 'test1'
             const updateListing = {
-                'id': 1,
                 'title': 'updated first test title',
                 'summary': 'updated first test summary',
                 'address': 'first test address',
                 'contact': 'first test contact',
                 'type': 'fruit',
                 'zip': '84103',
-                'username': 1
             }
             const index = testLisitngs.findIndex(listing => listing.id === idToUpdate)
             const expectedListing = {
                 ...testLisitngs[index],
                 ...updateListing
             }
+            console.log('expectedListing', expectedListing)
             return supertest(app)
                 .patch(`/api/list/users/${userToUpdate}/${idToUpdate}`)
                 .send(updateListing)

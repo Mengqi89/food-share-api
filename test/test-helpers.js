@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs')
+
 function makeListingsArray() {
     return [
         {
@@ -70,12 +72,12 @@ function seedUsers(db, users) {
     return db
         .into('users')
         .insert(preppedUsers)
-    // .then(() =>
-    //     // update the auto sequence to stay in sync
-    //     db.raw(`SELECT setval('users_id_seq', ?)`, [
-    //         users[users.length - 1].id
-    //     ])
-    // )
+        .then(() =>
+            // update the auto sequence to stay in sync
+            db.raw(`SELECT setval('users_id_seq', ?)`, [
+                users[users.length - 1].id
+            ])
+        )
 }
 
 
