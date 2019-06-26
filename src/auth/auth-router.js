@@ -8,8 +8,6 @@ authRouter
         const { username, password } = req.body
         const loginUser = { username, password }
 
-        console.log('login user', loginUser)
-
         for (const [key, value] of Object.entries(loginUser))
             if (value == null) {
                 console.log('value', value)
