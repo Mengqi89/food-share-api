@@ -22,9 +22,7 @@ usersRouter
             if (value == null)
                 return res
                     .status(400)
-                    .json({
-                        error: { message: `Missing '${key}' in request body` }
-                    })
+                    .json({ error: `Missing '${key}' in request body` })
 
         const passwordError = UsersService.validatePassword(password)
         if (passwordError) {
@@ -37,16 +35,14 @@ usersRouter
                 if (hasUserWithEmail)
                     return res
                         .status(400)
-                        .json({ error: { message: 'email already taken' } })
+                        .json({ error: 'email already taken' })
             })
         UsersService.hasUserWithUserName(req.app.get('db'), username)
             .then(hasUserWithUserName => {
                 if (hasUserWithUserName)
                     return res
                         .status(400)
-                        .json({
-                            error: { message: 'username already taken' }
-                        })
+                        .json({ error: 'username already taken' })
                 return UsersService.hashPassword(password)
                     .then(hashedPassword => {
                         const newUser = {

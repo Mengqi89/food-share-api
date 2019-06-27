@@ -68,9 +68,7 @@ listRouter
                 if (listing.length === 0) {
                     return res
                         .status(404)
-                        .json({
-                            error: { message: `Listing doesn't exist` }
-                        })
+                        .json({ error: `Listing doesn't exist` })
                 }
                 res.json(ListService.serializeListing(listing[0]))
             })
@@ -87,9 +85,7 @@ listRouter
             return res
                 .status(400)
                 .json({
-                    error: {
-                        message: `Request body must contain either 'title', 'summary', 'address', 'contact', 'type' or 'zip'.`
-                    }
+                    error: `Request body must contain either 'title', 'summary', 'address', 'contact', 'type' or 'zip'.`
                 })
         }
 
@@ -123,9 +119,7 @@ async function checkListingExists(req, res, next) {
         if (!listing)
             return res
                 .status(404)
-                .json({
-                    error: { message: `Listing doesn't exist` }
-                })
+                .json({ error: `Listing doesn't exist` })
 
         res.listing = listing
         next()
@@ -144,9 +138,7 @@ async function checkUserNameExists(req, res, next) {
         if (!user)
             return res
                 .status(404)
-                .json({
-                    error: { message: `Listing doesn't exist` }
-                })
+                .json({ error: `Listing doesn't exist` })
 
         res.userId = user.id
         next()
