@@ -202,7 +202,6 @@ describe('List Endpoints', function () {
                 ...testLisitngs[index],
                 ...updateListing
             }
-            console.log('expectedListing', expectedListing)
             return supertest(app)
                 .patch(`/api/list/users/${userToUpdate}/${idToUpdate}`)
                 .send(updateListing)

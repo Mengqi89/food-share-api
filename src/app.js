@@ -21,10 +21,6 @@ app.use(
 
 app.use(helmet())
 
-app.get('/', (req, res) => {
-  res.send('Hello, boilerplate!')
-})
-
 app.use('/api/users', usersRouter)
 app.use('/api/list', listRouter)
 app.use('/api/auth', authRouter)

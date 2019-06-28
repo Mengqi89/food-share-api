@@ -9,7 +9,6 @@ const listRouter = express.Router()
 
 listRouter
     .route('/')
-    // .all(requireAuth)
     .get((req, res, next) => {
         ListService.getAllListings(req.app.get('db'))
             .then(listings => {
@@ -18,7 +17,6 @@ listRouter
             .catch(next)
     })
     .post(jsonParser, (req, res, next) => {
-        console.log(req.body.listing)
         const { title, summary, contact, address, type, zip, username } = req.body.listing
         const newListing = { title, summary, contact, address, type, zip, username }
 
@@ -48,6 +46,7 @@ listRouter
 
 listRouter
     .route('/users/:username')
+    // .all(requireAuth)
     .all(checkUserNameExists)
     .get((req, res, next) => {
         ListService.getListingsByUserId(req.app.get('db'), res.userId)
@@ -59,6 +58,7 @@ listRouter
 
 listRouter
     .route('/users/:username/:listingId')
+    // .all(requireAuth)
     .all(checkUserNameExists)
     .get((req, res, next) => {
         const listingId = parseInt(req.params.listingId)
@@ -75,7 +75,6 @@ listRouter
             .catch(next)
     })
     .patch(jsonParser, (req, res, next) => {
-        console.log(req.body)
         const { title, summary, address, contact, type, zip } = req.body
         const listingId = parseInt(req.params.listingId)
         const newListing = { title, summary, address, contact, type, zip }
