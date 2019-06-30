@@ -46,8 +46,6 @@ const ListService = {
             type: xss(listing.type),
             zip: xss(listing.zip),
             username: parseInt(xss(listing.username))
-            // date_created: new Date(listing.date_created),
-            // date_modified: new Date(listing.date_modified)
         }
     }
 }

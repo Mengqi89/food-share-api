@@ -21,7 +21,7 @@ function requireAuth(req, res, next) {
                     return res
                         .status(401)
                         .json({ error: 'Unauthorized request' })
-                req.user = user // I didn't need this in order to pass the test.
+                req.user = user
                 next()
             })
             .catch(err => {

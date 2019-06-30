@@ -3,7 +3,6 @@ const path = require('path')
 const jsonParser = express.json()
 const ListService = require('./list-service')
 const UsersService = require('../users/users-service')
-// const { requireAuth } = require('../middleware/jwt-auth')
 
 const listRouter = express.Router()
 
@@ -46,7 +45,6 @@ listRouter
 
 listRouter
     .route('/users/:username')
-    // .all(requireAuth)
     .all(checkUserNameExists)
     .get((req, res, next) => {
         ListService.getListingsByUserId(req.app.get('db'), res.userId)
@@ -58,7 +56,6 @@ listRouter
 
 listRouter
     .route('/users/:username/:listingId')
-    // .all(requireAuth)
     .all(checkUserNameExists)
     .get((req, res, next) => {
         const listingId = parseInt(req.params.listingId)
