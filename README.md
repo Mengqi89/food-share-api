@@ -1,26 +1,37 @@
-# Express Boilerplate!
+# Open Garden
 
-This is a boilerplate project used for starting new projects!
+[Live App](https://opengarden.wmq516.now.sh)
 
-## Set up
+![Alt text](https://github.com/Mengqi89/open-garden-client/blob/master/src/images/Screenshot.png "Screenshot of live app")
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+## About 
+Open Garden provides a platform for people to share homegrown vegetables and fruit. It connects people and creates a community of eating healthy and local. You can view all the listings or filter them by zipcode and type ('vegetable' or 'fruit'). Each listing comes with the lister's contact information. Moreover, you can delete and edit all your personal listings in 'My List'. 
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+Use the demo credentials on the landing page or sign up for an account to explore the wonderful opportunities this community has to offer.
 
-## Scripts
+## Documentation of the API
 
-Start the application `npm start`
+Domain: https://enigmatic-shelf-57504.herokuapp.com
 
-Start nodemon for the application `npm run dev`
+### By users 
+* GET - returns all users /api/users
+* POST - register a user /api/users
 
-Run the tests `npm test`
+### By listing
+* GET - returns all listings /api/list
+* POST - post a listing /api/list
+* GET - get a listing by listing id /api/list/:listingId
+* GET - get all listings of a particular username /api/list/users/:username
+* GET - get a listing by username and listing id /api/list/users/:username/:listingId
+* PATCH - update a listing of a particular username /api/list/users/:username/:listingId
+* DELETE - delete a listing of a particular username /api/list/users/:username/:listingId
 
-## Deploying
+## Technology used
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+* HTML
+* CSS
+* JavaScript
+* React
+* Node
+* Express
+* PostgreSQL
