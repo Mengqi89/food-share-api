@@ -16,7 +16,7 @@ listRouter
             .catch(next)
     })
     .post(jsonParser, (req, res, next) => {
-        const { title, summary, contact, address, type, zip, username } = req.body.listing
+        const { title, summary, contact, address, type, zip, username } = req.body
         const newListing = { title, summary, contact, address, type, zip, username }
 
         for (const [key, value] of Object.entries(newListing))
