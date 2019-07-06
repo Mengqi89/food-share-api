@@ -2,7 +2,7 @@
 
 [Live App](https://opengarden.wmq516.now.sh)
 
-![Alt text](https://github.com/Mengqi89/open-garden-client/blob/master/src/images/Screenshot.jpeg "Screenshot of live app")
+![Alt text](https://github.com/Mengqi89/open-garden-client/blob/master/src/images/Screenshot.png "Screenshot of live app")
 
 ## About 
 Open Garden provides a platform for people to share homegrown vegetables and fruit. It connects people and creates a community of eating healthy and local. You can view all the listings or filter them by zipcode and type ('vegetable' or 'fruit'). Each listing comes with the lister's contact information. Moreover, you can delete and edit all your personal listings in 'My List'. 
