@@ -69,7 +69,7 @@ describe('List Endpoints', function () {
                 const listingId = 9999999
                 return supertest(app)
                     .get(`/api/list/${listingId}`)
-                    .expect(404, { error: { message: `Listing doesn't exist` } })
+                    .expect(404, { error: `Listing doesn't exist` })
             })
         })
 
@@ -104,7 +104,7 @@ describe('List Endpoints', function () {
                 const username = 'nouser'
                 return supertest(app)
                     .get(`/api/list/users/${username}`)
-                    .expect(404, { error: { message: `Listing doesn't exist` } })
+                    .expect(404, { error: `Listing doesn't exist` })
             })
         })
 
@@ -142,7 +142,7 @@ describe('List Endpoints', function () {
                 const listingId = 999999
                 return supertest(app)
                     .get(`/api/list/users/${username}/${listingId}`)
-                    .expect(404, { error: { message: `Listing doesn't exist` } })
+                    .expect(404, { error: `Listing doesn't exist` })
             })
         })
 
