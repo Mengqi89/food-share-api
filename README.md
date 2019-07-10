@@ -40,7 +40,6 @@ Domain: https://enigmatic-shelf-57504.herokuapp.com
         "email": String,
         "password": String
 }
-
 //res.body
 {
         "id": Integer,
@@ -72,10 +71,8 @@ Domain: https://enigmatic-shelf-57504.herokuapp.com
 ```
 
 * POST - post a listing `/api/list`
-
 ```js
 //req.body
-
 {
     "title": String,
     "summary": String,
@@ -84,7 +81,6 @@ Domain: https://enigmatic-shelf-57504.herokuapp.com
     "type": "fruit",
     "zip": String,
     "username": Integer
-}
 
 //res.body
 {	
@@ -99,15 +95,12 @@ Domain: https://enigmatic-shelf-57504.herokuapp.com
 }
 ```
 
-
 * GET - get a listing by listing id `/api/list/:listingId`
 ```js
 //req.params
-
 {
 listingid: String
 }
-
 //res.body
     {
         "id": Integer,
@@ -120,13 +113,13 @@ listingid: String
         "username": Integer
     }
 ```
+
 * GET - get all listings of a particular username `/api/list/users/:username`
 ```js
 //req.params
 {
 username: String
 }
-
 //res.body
 [
     {
@@ -142,6 +135,7 @@ username: String
     ...
     ]
 ```
+
 * GET - get a listing by username and listing id /api/list/users/:username/:listingId
 ```js
 //req.params
@@ -149,7 +143,6 @@ username: String
 username: String,
 listingId: String
 }
-
 //res.body
 {
         "id": Integer,
@@ -162,6 +155,7 @@ listingId: String
         "username": Integer
 }
 ```
+
 * PATCH - update a listing of a particular username `/api/list/users/:username/:listingId`
 ```js
 //req.params
@@ -169,16 +163,14 @@ listingId: String
 	username: String,
 	listingId: String
 }
-
 //req.body
 {
     "title": Updated String,
     "summary": Updated String,
 }
-
 //res.body
 {	
-    id: Integer,
+    "id": Integer,
     "title": Updated String,
     "summary": Updated String,
     "address": String,
@@ -188,6 +180,7 @@ listingId: String
     "username": Integer
 }
 ```
+
 * DELETE - delete a listing of a particular username `/api/list/users/:username/:listingId`
 ```js
 //req.params
@@ -195,7 +188,6 @@ listingId: String
 	username: String,
 	listingId: String
 }
-
 //res.body
 Returns all listings except the one deleted
 ```
