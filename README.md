@@ -180,7 +180,7 @@ listingId: String
 {	
     id: Integer,
     "title": Updated String,
-    "summary": Updated Summary,
+    "summary": Updated String,
     "address": String,
     "contact": String,
     "type": "fruit",
