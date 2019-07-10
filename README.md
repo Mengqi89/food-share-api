@@ -39,7 +39,28 @@ Domain: https://enigmatic-shelf-57504.herokuapp.com
     ]
 ```
 
-* POST - register a user /api/users
+* POST - register a user `/api/users`
+
+```js
+// req.body
+{
+		"first_name": String,
+        "last_name": String,
+        "username": String,
+        "email": String,
+        "password": String
+}
+
+//res.body
+{
+        "id": Integer,
+        "first_name": String,
+        "last_name": String,
+        "username": String,
+        "email": String,
+        "password": String
+    }
+```
 
 ### By listing
 * GET - returns all listings /api/list
