@@ -15,18 +15,9 @@ Domain: https://enigmatic-shelf-57504.herokuapp.com
 
 ### By users 
 * GET - returns all users `/api/users`
-
 ```js
 // res.body
 [
-    {
-        "id": Integer,
-        "first_name": String,
-        "last_name": String,
-        "username": String,
-        "email": String,
-        "password": String
-    },
     {
         "id": Integer,
         "first_name": String,
@@ -40,11 +31,10 @@ Domain: https://enigmatic-shelf-57504.herokuapp.com
 ```
 
 * POST - register a user `/api/users`
-
 ```js
 // req.body
 {
-		"first_name": String,
+	"first_name": String,
         "last_name": String,
         "username": String,
         "email": String,
@@ -63,11 +53,87 @@ Domain: https://enigmatic-shelf-57504.herokuapp.com
 ```
 
 ### By listing
-* GET - returns all listings /api/list
+* GET - returns all listings `/api/list`
+```js
+//res.body
+[
+    {
+        "id": Integer,
+        "title": String,
+        "summary": String,
+        "address": String,
+        "contact": String,
+        "type": "vegetable",
+        "zip": String,
+        "username": Integer
+    },
+    ...
+    ]
+```
+
 * POST - post a listing /api/list
-* GET - get a listing by listing id /api/list/:listingId
+* GET - get a listing by listing id `/api/list/:listingId`
+```js
+//req.params
+
+{
+listingid: String
+}
+
+//res.body
+    {
+        "id": Integer,
+        "title": String,
+        "summary": String,
+        "address": String,
+        "contact": String,
+        "type": "vegetable",
+        "zip": String,
+        "username": Integer
+    }
+```
 * GET - get all listings of a particular username /api/list/users/:username
+```js
+//req.params
+{
+username: String
+}
+
+//res.body
+[
+    {
+        "id": Integer,
+        "title": String,
+        "summary": String,
+        "address": String,
+        "contact": String,
+        "type": "vegetable",
+        "zip": String,
+        "username": Integer
+    },
+    ...
+    ]
+```
 * GET - get a listing by username and listing id /api/list/users/:username/:listingId
+```js
+//req.params
+{
+username: String,
+listingId: String
+}
+
+//res.body
+{
+        "id": Integer,
+        "title": String,
+        "summary": String,
+        "address": String,
+        "contact": String,
+        "type": "vegetable",
+        "zip": String,
+        "username": Integer
+}
+```
 * PATCH - update a listing of a particular username /api/list/users/:username/:listingId
 * DELETE - delete a listing of a particular username /api/list/users/:username/:listingId
 
