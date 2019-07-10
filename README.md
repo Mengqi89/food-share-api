@@ -199,8 +199,8 @@ listingId: String
 //res.body
 [
 ...
-~~{	~~
-~~    id: Integer,~~
+~~{~~
+~id: Integer,~
 ~~    "title": Updated String,~~
 ~~    "summary": Updated Summary,~~
 ~~    "address": String,~~
