@@ -71,7 +71,35 @@ Domain: https://enigmatic-shelf-57504.herokuapp.com
     ]
 ```
 
-* POST - post a listing /api/list
+* POST - post a listing `/api/list`
+
+```js
+//req.body
+
+{
+    "title": String,
+    "summary": String,
+    "address": String,
+    "contact": String,
+    "type": "fruit",
+    "zip": String,
+    "username": Integer
+}
+
+//res.body
+{	
+    id: Integer,
+    "title": String,
+    "summary": String,
+    "address": String,
+    "contact": String,
+    "type": "fruit",
+    "zip": String,
+    "username": Integer
+}
+```
+
+
 * GET - get a listing by listing id `/api/list/:listingId`
 ```js
 //req.params
@@ -92,7 +120,7 @@ listingid: String
         "username": Integer
     }
 ```
-* GET - get all listings of a particular username /api/list/users/:username
+* GET - get all listings of a particular username `/api/list/users/:username`
 ```js
 //req.params
 {
@@ -134,8 +162,57 @@ listingId: String
         "username": Integer
 }
 ```
-* PATCH - update a listing of a particular username /api/list/users/:username/:listingId
-* DELETE - delete a listing of a particular username /api/list/users/:username/:listingId
+* PATCH - update a listing of a particular username `/api/list/users/:username/:listingId`
+```js
+//req.params
+{
+	username: String,
+	listingId: String
+}
+
+//req.body
+{
+    "title": Updated String,
+    "summary": Updated String,
+}
+
+//res.body
+{	
+    id: Integer,
+    "title": Updated String,
+    "summary": Updated Summary,
+    "address": String,
+    "contact": String,
+    "type": "fruit",
+    "zip": String,
+    "username": Integer
+}
+```
+* DELETE - delete a listing of a particular username `/api/list/users/:username/:listingId`
+```js
+//req.params
+{
+	username: String,
+	listingId: String
+}
+
+//res.body
+[
+...
+~~{	~~
+~~    id: Integer,~~
+~~    "title": Updated String,~~
+~~    "summary": Updated Summary,~~
+~~    "address": String,~~
+~~    "contact": String,~~
+~~    "type": "fruit",~~
+~~    "zip": String,~~
+~~    "username": Integer~~
+~~}~~
+...
+]
+
+```
 
 ## Technology used
 
