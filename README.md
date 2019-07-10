@@ -14,7 +14,31 @@ Use the demo credentials on the landing page or sign up for an account to explor
 Domain: https://enigmatic-shelf-57504.herokuapp.com
 
 ### By users 
-* GET - returns all users /api/users
+* GET - returns all users `/api/users`
+
+```js
+// res.body
+[
+    {
+        "id": Integer,
+        "first_name": String,
+        "last_name": String,
+        "username": String,
+        "email": String,
+        "password": String
+    },
+    {
+        "id": Integer,
+        "first_name": String,
+        "last_name": String,
+        "username": String,
+        "email": String,
+        "password": String
+    },
+    ...
+    ]
+```
+
 * POST - register a user /api/users
 
 ### By listing
