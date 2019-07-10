@@ -197,21 +197,7 @@ listingId: String
 }
 
 //res.body
-[
-...
-~~{~~
-~id: Integer,~
-~~    "title": Updated String,~~
-~~    "summary": Updated Summary,~~
-~~    "address": String,~~
-~~    "contact": String,~~
-~~    "type": "fruit",~~
-~~    "zip": String,~~
-~~    "username": Integer~~
-~~}~~
-...
-]
-
+Returns all listings except the one deleted
 ```
 
 ## Technology used
